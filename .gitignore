@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+/tubes/obj/
+*.exe
+*.o
+/tubes/bin/
