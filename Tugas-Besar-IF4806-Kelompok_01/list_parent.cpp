@@ -1,4 +1,4 @@
-#include "paper.h"
+#include "list_parent.h"
 
 void createListPaper(ListPaper &L) {
     L.first = NULL;

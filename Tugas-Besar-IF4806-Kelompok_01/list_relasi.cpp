@@ -1,4 +1,4 @@
-#include "relasi.h"
+#include "list_relasi.h"
 
 void createListRelasi(ListRelasi &L) {
     L.first = NULL;

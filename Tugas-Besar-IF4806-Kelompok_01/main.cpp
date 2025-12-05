@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "paper.h"
-#include "keyword.h"
-#include "relasi.h"
+#include "list_child.h"
+#include "list_parent.h"
+#include "list_relasi.h"
 
 using namespace std;
 

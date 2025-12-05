@@ -1,8 +1,8 @@
 #ifndef RELASI_H_INCLUDED
 #define RELASI_H_INCLUDED
 
-#include "paper.h"
-#include "keyword.h"
+#include "list_parent.h"
+#include "list_child.h"
 
 typedef struct elmenRelasi *addressRelasi;
 
