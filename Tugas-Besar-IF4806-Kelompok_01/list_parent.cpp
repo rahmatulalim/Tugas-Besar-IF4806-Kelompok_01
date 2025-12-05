@@ -28,11 +28,24 @@ void insertLastPaper(ListPaper &L, addressPaper P) {
     }
 }
 
+void insertAfterPaper(ListPaper &L, addressPaper Prec, addressPaper P) {
+    if (P == NULL) return;
+    if (Prec == NULL) {
+        // insert at beginning
+        insertFirstPaper(L, P);
+    } else {
+        P->next = Prec->next;
+        Prec->next = P;
+    }
+}
+
 void deleteFirstPaper(ListPaper &L, addressPaper &P) {
     if (L.first != NULL) {
         P = L.first;
         L.first = P->next;
         P->next = NULL;
+    } else {
+        P = NULL;
     }
 }
 
@@ -48,6 +61,22 @@ void deleteLastPaper(ListPaper &L, addressPaper &P) {
         }
         P = Q->next;
         Q->next = NULL;
+    }
+}
+
+void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P) {
+    P = NULL;
+    if (L.first == NULL) return;
+    if (Prec == NULL) {
+        deleteFirstPaper(L, P);
+    } else {
+        if (Prec->next == NULL) {
+            P = NULL;
+            return;
+        }
+        P = Prec->next;
+        Prec->next = P->next;
+        P->next = NULL;
     }
 }
 

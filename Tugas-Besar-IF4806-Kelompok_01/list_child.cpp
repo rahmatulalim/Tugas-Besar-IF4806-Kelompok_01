@@ -34,6 +34,20 @@ void insertLastKeyword(ListKeyword &L, addressKeyword P) {
     }
 }
 
+void insertAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword P) {
+    if (P == NULL) return;
+    if (Prec == NULL) {
+        insertFirstKeyword(L, P);
+    } else if (Prec == L.last) {
+        insertLastKeyword(L, P);
+    } else {
+        P->next = Prec->next;
+        P->prev = Prec;
+        Prec->next->prev = P;
+        Prec->next = P;
+    }
+}
+
 void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
     P = L.first;
     if (P != NULL) {
@@ -44,6 +58,7 @@ void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
             L.first = P->next;
             L.first->prev = NULL;
             P->next = NULL;
+            P->prev = NULL;
         }
     }
 }
@@ -56,6 +71,30 @@ void deleteLastKeyword(ListKeyword &L, addressKeyword &P) {
         } else {
             L.last = P->prev;
             L.last->next = NULL;
+            P->prev = NULL;
+            P->next = NULL;
+        }
+    }
+}
+
+void deleteAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword &P) {
+    P = NULL;
+    if (L.first == NULL) return;
+    if (Prec == NULL) {
+        deleteFirstKeyword(L, P);
+    } else {
+        addressKeyword target = Prec->next;
+        if (target == NULL) {
+            P = NULL;
+            return;
+        }
+        if (target == L.last) {
+            deleteLastKeyword(L, P);
+        } else {
+            P = target;
+            Prec->next = P->next;
+            P->next->prev = Prec;
+            P->next = NULL;
             P->prev = NULL;
         }
     }

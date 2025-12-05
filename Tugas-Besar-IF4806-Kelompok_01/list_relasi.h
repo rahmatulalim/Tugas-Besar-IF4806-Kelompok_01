@@ -24,4 +24,7 @@ addressRelasi findRelasi(ListRelasi L, string idPaper, string namaKeyword);
 void connect(ListRelasi &LR, ListPaper LP, ListKeyword LK, string idPaper, string namaKeyword);
 void disconnect(ListRelasi &LR, string idPaper, string namaKeyword);
 
+void removeRelasiByPaper(ListRelasi &LR, string idPaper);
+void removeRelasiByKeyword(ListRelasi &LR, string namaKeyword);
+
 #endif

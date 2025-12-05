@@ -26,8 +26,12 @@ void createListPaper(ListPaper &L);
 addressPaper alokasiPaper(infotypePaper x);
 void insertFirstPaper(ListPaper &L, addressPaper P);
 void insertLastPaper(ListPaper &L, addressPaper P);
+void insertAfterPaper(ListPaper &L, addressPaper Prec, addressPaper P);
+
 void deleteFirstPaper(ListPaper &L, addressPaper &P);
 void deleteLastPaper(ListPaper &L, addressPaper &P);
+void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P);
+
 void printPaper(ListPaper L);
 addressPaper findPaper(ListPaper L, string idPaper);
 
