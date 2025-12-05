@@ -1,27 +1,22 @@
-#include "../Headers/list_relasi.h"
+#include "relasi.h"
 
 void createListRelasi(ListRelasi &L) {
     L.first = NULL;
 }
 
-addressR alokasiRelasi(addressP P, addressC C) {
-    addressR R = new elmenR;
+addressRelasi alokasiRelasi(addressPaper P, addressKeyword C) {
+    addressRelasi R = new elmenRelasi;
     R->parent = P;
     R->child = C;
     R->next = NULL;
     return R;
 }
 
-void insertFirstRelasi(ListRelasi &L, addressR R) {
-    R->next = L.first;
-    L.first = R;
-}
-
-void insertLastRelasi(ListRelasi &L, addressR R) {
+void insertLastRelasi(ListRelasi &L, addressRelasi R) {
     if (L.first == NULL) {
-        insertFirstRelasi(L, R);
+        L.first = R;
     } else {
-        addressR Q = L.first;
+        addressRelasi Q = L.first;
         while (Q->next != NULL) {
             Q = Q->next;
         }
@@ -29,33 +24,22 @@ void insertLastRelasi(ListRelasi &L, addressR R) {
     }
 }
 
-addressR findRelasi(ListRelasi L, string idPaper, string namaKeyword) {
-    addressR R = L.first;
-    while (R != NULL) {
-        if (R->parent->info.idPaper == idPaper && R->child->info.namaKeyword == namaKeyword) {
-            return R;
-        }
-        R = R->next;
-    }
-    return NULL;
-}
+void connect(ListRelasi &LR, ListPaper LP, ListKeyword LK, string idPaper, string namaKeyword) {
+    addressPaper P = findPaper(LP, idPaper);
+    addressKeyword K = findKeyword(LK, namaKeyword);
 
-void connect(ListRelasi &LR, ListParent LP, ListChild LC, string idPaper, string namaKeyword) {
-    addressP P = findParent(LP, idPaper);
-    addressC C = findChild(LC, namaKeyword);
-
-    if (P != NULL && C != NULL) {
-        addressR R = alokasiRelasi(P, C);
+    if (P != NULL && K != NULL) {
+        addressRelasi R = alokasiRelasi(P, K);
         insertLastRelasi(LR, R);
-        cout << "Berhasil menghubungkan: " << P->info.judul << " <--> " << C->info.namaKeyword << endl;
+        cout << "Berhasil menghubungkan: " << P->info.judul << " <--> " << K->info.namaKeyword << endl;
     } else {
-        cout << "Gagal menghubungkan: Data Parent atau Child tidak ditemukan." << endl;
+        cout << "Gagal menghubungkan: Data Paper atau Keyword tidak ditemukan." << endl;
     }
 }
 
 void disconnect(ListRelasi &LR, string idPaper, string namaKeyword) {
-    addressR R = LR.first;
-    addressR Prec = NULL;
+    addressRelasi R = LR.first;
+    addressRelasi Prec = NULL;
 
     while (R != NULL) {
         if (R->parent->info.idPaper == idPaper && R->child->info.namaKeyword == namaKeyword) {
@@ -75,7 +59,7 @@ void disconnect(ListRelasi &LR, string idPaper, string namaKeyword) {
 }
 
 void printRelasi(ListRelasi L) {
-    addressR R = L.first;
+    addressRelasi R = L.first;
     cout << "\n=== DAFTAR RELASI (PAPER - KEYWORD) ===" << endl;
     if (R == NULL) {
         cout << "(Tidak ada relasi)" << endl;

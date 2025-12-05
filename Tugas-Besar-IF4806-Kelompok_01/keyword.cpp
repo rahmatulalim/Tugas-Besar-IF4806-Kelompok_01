@@ -1,19 +1,19 @@
-#include "../Headers/list_child.h"
+#include "keyword.h"
 
-void createListChild(ListChild &L) {
+void createListKeyword(ListKeyword &L) {
     L.first = NULL;
     L.last = NULL;
 }
 
-addressC alokasiChild(infotypeC x) {
-    addressC P = new elmenC;
+addressKeyword alokasiKeyword(infotypeKeyword x) {
+    addressKeyword P = new elmenKeyword;
     P->info = x;
     P->next = NULL;
     P->prev = NULL;
     return P;
 }
 
-void insertFirstChild(ListChild &L, addressC P) {
+void insertFirstKeyword(ListKeyword &L, addressKeyword P) {
     if (L.first == NULL) {
         L.first = P;
         L.last = P;
@@ -24,9 +24,9 @@ void insertFirstChild(ListChild &L, addressC P) {
     }
 }
 
-void insertLastChild(ListChild &L, addressC P) {
+void insertLastKeyword(ListKeyword &L, addressKeyword P) {
     if (L.first == NULL) {
-        insertFirstChild(L, P);
+        insertFirstKeyword(L, P);
     } else {
         P->prev = L.last;
         L.last->next = P;
@@ -34,7 +34,7 @@ void insertLastChild(ListChild &L, addressC P) {
     }
 }
 
-void deleteFirstChild(ListChild &L, addressC &P) {
+void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
     P = L.first;
     if (P != NULL) {
         if (L.first == L.last) {
@@ -48,11 +48,11 @@ void deleteFirstChild(ListChild &L, addressC &P) {
     }
 }
 
-void deleteLastChild(ListChild &L, addressC &P) {
+void deleteLastKeyword(ListKeyword &L, addressKeyword &P) {
     P = L.last;
     if (P != NULL) {
         if (L.first == L.last) {
-            deleteFirstChild(L, P);
+            deleteFirstKeyword(L, P);
         } else {
             L.last = P->prev;
             L.last->next = NULL;
@@ -61,9 +61,9 @@ void deleteLastChild(ListChild &L, addressC &P) {
     }
 }
 
-void printChild(ListChild L) {
-    addressC P = L.first;
-    cout << "\n=== LIST KEYWORD (CHILD) ===" << endl;
+void printKeyword(ListKeyword L) {
+    addressKeyword P = L.first;
+    cout << "\n=== LIST KEYWORD ===" << endl;
     while (P != NULL) {
         cout << "ID: " << P->info.idKeyword
              << " | Keyword: " << P->info.namaKeyword << endl;
@@ -72,8 +72,8 @@ void printChild(ListChild L) {
     cout << endl;
 }
 
-addressC findChild(ListChild L, string namaKeyword) {
-    addressC P = L.first;
+addressKeyword findKeyword(ListKeyword L, string namaKeyword) {
+    addressKeyword P = L.first;
     while (P != NULL) {
         if (P->info.namaKeyword == namaKeyword) {
             return P;

@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1764921864 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\keyword.cpp
+	"keyword.h"
+
+1764921810 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\keyword.h
+	<iostream>
+	<string>
+
+1764921886 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+	<iostream>
+	<string>
+	"paper.h"
+	"keyword.h"
+	"relasi.h"
+
+1764921774 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\paper.h
+	<iostream>
+	<string>
+
+1764921832 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\relasi.h
+	"paper.h"
+	"keyword.h"
+
+1764921852 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\paper.cpp
+	"paper.h"
+
+1764921873 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\relasi.cpp
+	"relasi.h"
+

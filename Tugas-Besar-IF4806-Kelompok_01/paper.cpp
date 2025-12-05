@@ -1,26 +1,26 @@
-#include "../Headers/list_parent.h"
+#include "paper.h"
 
-void createListParent(ListParent &L) {
+void createListPaper(ListPaper &L) {
     L.first = NULL;
 }
 
-addressP alokasiParent(infotypeP x) {
-    addressP P = new elmenP;
+addressPaper alokasiPaper(infotypePaper x) {
+    addressPaper P = new elmenPaper;
     P->info = x;
     P->next = NULL;
     return P;
 }
 
-void insertFirstParent(ListParent &L, addressP P) {
+void insertFirstPaper(ListPaper &L, addressPaper P) {
     P->next = L.first;
     L.first = P;
 }
 
-void insertLastParent(ListParent &L, addressP P) {
+void insertLastPaper(ListPaper &L, addressPaper P) {
     if (L.first == NULL) {
-        insertFirstParent(L, P);
+        insertFirstPaper(L, P);
     } else {
-        addressP Q = L.first;
+        addressPaper Q = L.first;
         while (Q->next != NULL) {
             Q = Q->next;
         }
@@ -28,7 +28,7 @@ void insertLastParent(ListParent &L, addressP P) {
     }
 }
 
-void deleteFirstParent(ListParent &L, addressP &P) {
+void deleteFirstPaper(ListPaper &L, addressPaper &P) {
     if (L.first != NULL) {
         P = L.first;
         L.first = P->next;
@@ -36,13 +36,13 @@ void deleteFirstParent(ListParent &L, addressP &P) {
     }
 }
 
-void deleteLastParent(ListParent &L, addressP &P) {
+void deleteLastPaper(ListPaper &L, addressPaper &P) {
     if (L.first == NULL) {
         P = NULL;
     } else if (L.first->next == NULL) {
-        deleteFirstParent(L, P);
+        deleteFirstPaper(L, P);
     } else {
-        addressP Q = L.first;
+        addressPaper Q = L.first;
         while (Q->next->next != NULL) {
             Q = Q->next;
         }
@@ -51,9 +51,9 @@ void deleteLastParent(ListParent &L, addressP &P) {
     }
 }
 
-void printParent(ListParent L) {
-    addressP P = L.first;
-    cout << "\n=== LIST PAPER (PARENT) ===" << endl;
+void printPaper(ListPaper L) {
+    addressPaper P = L.first;
+    cout << "\n=== LIST PAPER ===" << endl;
     while (P != NULL) {
         cout << "ID: " << P->info.idPaper
              << " | Judul: " << P->info.judul
@@ -63,8 +63,8 @@ void printParent(ListParent L) {
     cout << endl;
 }
 
-addressP findParent(ListParent L, string idPaper) {
-    addressP P = L.first;
+addressPaper findPaper(ListPaper L, string idPaper) {
+    addressPaper P = L.first;
     while (P != NULL) {
         if (P->info.idPaper == idPaper) {
             return P;
