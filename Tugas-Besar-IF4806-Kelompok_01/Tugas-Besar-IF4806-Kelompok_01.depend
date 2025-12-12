@@ -6,12 +6,14 @@
 	<iostream>
 	<string>
 
-1764921886 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+1764934540 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
 	<iostream>
 	<string>
-	"paper.h"
-	"keyword.h"
-	"relasi.h"
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
+	"user.h"
+	"admin.h"
 
 1764921774 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\paper.h
 	<iostream>
@@ -26,4 +28,46 @@
 
 1764921873 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\relasi.cpp
 	"relasi.h"
+
+1764934873 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.cpp
+	"list_parent.h"
+
+1764934885 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+	<iostream>
+	<string>
+
+1764934862 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.cpp
+	"list_child.h"
+
+1764934849 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
+	<iostream>
+	<string>
+
+1764934898 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_relasi.cpp
+	"list_relasi.h"
+	<iostream>
+
+1764934907 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_relasi.h
+	"list_parent.h"
+	"list_child.h"
+
+1764934771 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
+	"list_parent.h"
+	"list_child.h"
+	"list_relasi.h"
+
+1764934669 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
+	"list_parent.h"
+	"list_child.h"
+	"list_relasi.h"
+
+1764934751 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
+	<iostream>
+	<string>
+	"user.h"
+
+1764934610 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
+	<iostream>
+	<string>
+	"admin.h"
 

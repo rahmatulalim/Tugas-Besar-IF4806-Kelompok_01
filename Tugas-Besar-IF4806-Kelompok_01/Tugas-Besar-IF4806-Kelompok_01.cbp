@@ -32,13 +32,17 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="keyword.cpp" />
-		<Unit filename="keyword.h" />
+		<Unit filename="admin.cpp" />
+		<Unit filename="admin.h" />
+		<Unit filename="list_child.cpp" />
+		<Unit filename="list_child.h" />
+		<Unit filename="list_parent.cpp" />
+		<Unit filename="list_parent.h" />
+		<Unit filename="list_relasi.cpp" />
+		<Unit filename="list_relasi.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="paper.cpp" />
-		<Unit filename="paper.h" />
-		<Unit filename="relasi.cpp" />
-		<Unit filename="relasi.h" />
+		<Unit filename="user.cpp" />
+		<Unit filename="user.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
