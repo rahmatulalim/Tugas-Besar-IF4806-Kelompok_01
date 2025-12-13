@@ -20,42 +20,119 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
         cout << "Pilih: ";
         cin >> pilihan;
 
-        cin.ignore();
-
         switch (pilihan) {
-            case 1:
-                cout << "ID Paper   : "; getline(cin, idPaper);
-                cout << "Judul      : "; getline(cin, judulPaper);
-                cout << "Tahun      : "; cin >> tahunPaper;
-                insertLastPaper(LP, alokasiPaper({judulPaper, idPaper, tahunPaper}));
+
+            // ========================
+            // TAMBAH PAPER (versi klasik)
+            // ========================
+            case 1: {
+                cout << "ID Paper   : ";
+                cin >> idPaper;
+
+                // cek ID unik manual (tanpa findPaper)
+                bool idAda = false;
+                addressPaper cek = LP.first;
+                while (cek != nullptr) {
+                    if (cek->info.idPaper == idPaper) {
+                        idAda = true;
+                        break;
+                    }
+                    cek = cek->next;
+                }
+
+                if (idAda) {
+                    cout << ">> Gagal: ID Paper sudah ada." << endl;
+                    break;
+                }
+
+                cout << "Judul      : ";
+                cin >> judulPaper;
+
+                cout << "Tahun      : ";
+                cin >> tahunPaper;
+
+                // bentuk klasik tanpa initializer list
+                infotypePaper dataP;
+                dataP.idPaper = idPaper;
+                dataP.judul = judulPaper;
+                dataP.tahun = tahunPaper;
+
+                addressPaper baruP = alokasiPaper(dataP);
+                insertLastPaper(LP, baruP);
                 cout << ">> Paper disimpan." << endl;
                 break;
+            }
 
-            case 2:
-                cout << "ID Keyword : "; getline(cin, idKeyword);
-                cout << "Keyword    : "; getline(cin, namaKeyword);
-                insertLastKeyword(LK, alokasiKeyword({namaKeyword, idKeyword}));
+            // ========================
+            // TAMBAH KEYWORD
+            // ========================
+            case 2: {
+                cout << "ID Keyword : ";
+                cin >> idKeyword;
+                cout << "Keyword    : ";
+                cin >> namaKeyword;
+
+                // cek unik keyword (id & nama) secara traversal manual
+                bool idAda = false;
+                bool namaAda = false;
+                addressKeyword cekK = LK.first;
+                while (cekK != nullptr) {
+                    if (cekK->info.idKeyword == idKeyword) idAda = true;
+                    if (cekK->info.namaKeyword == namaKeyword) namaAda = true;
+                    cekK = cekK->next;
+                }
+
+                if (idAda) {
+                    cout << ">> Gagal: ID Keyword sudah digunakan." << endl;
+                    break;
+                }
+                if (namaAda) {
+                    cout << ">> Gagal: Keyword sudah ada." << endl;
+                    break;
+                }
+
+                infotypeKeyword dataK;
+                dataK.idKeyword = idKeyword;
+                dataK.namaKeyword = namaKeyword;
+
+                addressKeyword baruK = alokasiKeyword(dataK);
+                insertLastKeyword(LK, baruK);
                 cout << ">> Keyword disimpan." << endl;
                 break;
+            }
 
+            // ========================
+            // LIHAT PAPER
+            // ========================
             case 3:
                 printPaper(LP);
                 break;
 
+            // ========================
+            // LIHAT KEYWORD
+            // ========================
             case 4:
                 printKeyword(LK);
                 break;
 
-            case 5:
-                cout << "ID Paper   : "; getline(cin, idPaper);
-                cout << "Keyword    : "; getline(cin, namaKeyword);
+            // ========================
+            // CONNECT PAPER – KEYWORD
+            // ========================
+            case 5: {
+                cout << "ID Paper   : ";
+                cin >> idPaper;
+                cout << "Keyword    : ";
+                cin >> namaKeyword;
                 connect(LR, LP, LK, idPaper, namaKeyword);
                 break;
+            }
 
             case 0:
                 break;
+
             default:
                 cout << "Input salah." << endl;
         }
+
     } while (pilihan != 0);
 }
