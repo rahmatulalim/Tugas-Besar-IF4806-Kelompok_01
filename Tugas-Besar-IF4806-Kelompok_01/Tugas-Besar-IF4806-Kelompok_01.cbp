@@ -34,10 +34,12 @@
 		</Compiler>
 		<Unit filename="admin.cpp" />
 		<Unit filename="admin.h" />
-		<Unit filename="list_child.cpp" />
 		<Unit filename="list_child.h" />
-		<Unit filename="list_parent.cpp" />
+		<Unit filename="list_child_103012400172.cpp" />
+		<Unit filename="list_child_103012430029.cpp" />
 		<Unit filename="list_parent.h" />
+		<Unit filename="list_parent_103012400172.cpp" />
+		<Unit filename="list_parent_103012430029.cpp" />
 		<Unit filename="list_relasi.cpp" />
 		<Unit filename="list_relasi.h" />
 		<Unit filename="main.cpp" />
