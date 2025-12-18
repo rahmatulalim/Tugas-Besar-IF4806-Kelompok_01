@@ -56,12 +56,12 @@ void printKeyword(ListKeyword L) {
     addressKeyword P = L.first;
     cout << "\n=== LIST KEYWORD ===" << endl;
     while (P != nullptr) {
-        cout << "ID: " << P->info.idKeyword
-             << " | Keyword: " << P->info.namaKeyword << endl;
+        cout << "- " << P->info.namaKeyword << endl;
         P = P->next;
     }
     cout << endl;
 }
+
 
 addressKeyword findKeyword(ListKeyword L, string namaKeyword) {
     addressKeyword P = L.first;

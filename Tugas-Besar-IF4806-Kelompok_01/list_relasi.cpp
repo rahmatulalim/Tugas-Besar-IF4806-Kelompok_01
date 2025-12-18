@@ -178,7 +178,7 @@ void printAllChildWithParent(ListRelasi LR, ListKeyword LK) {
     addressKeyword K = LK.first;
     cout << "\n=== DAFTAR SEMUA KEYWORD & PAPER PENGGUNANYA ===" << endl;
     while (K != nullptr) {
-        cout << "[" << K->info.idKeyword << "] " << K->info.namaKeyword << ":" << endl;
+        cout << K->info.namaKeyword << ":" << endl;
         addressRelasi R = LR.first;
         bool ada = false;
         while (R != nullptr) {
@@ -192,6 +192,7 @@ void printAllChildWithParent(ListRelasi LR, ListKeyword LK) {
         K = K->next;
     }
 }
+
 
 void countRelationOfParent(ListRelasi LR, ListPaper LP) {
     addressPaper P = LP.first;

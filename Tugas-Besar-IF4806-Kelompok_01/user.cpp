@@ -5,16 +5,16 @@
 using namespace std;
 
 void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
-    int pilihan;
+    int pilihan = -1;
     string idPaper, namaKeyword, newKw;
-    string idKeyword, judulPaper;
+    string judulPaper;
     int tahunPaper;
     addressPaper P;
     addressKeyword K;
 
-    do {
-        cout << "\n===========================================" << endl;
-        cout << "              USER MENU (STUDI KASUS)       " << endl;
+    while (pilihan != 0) {
+        cout << "===========================================" << endl;
+        cout << "           USER MENU (STUDI KASUS)         " << endl;
         cout << "===========================================" << endl;
 
         cout << "MANAJEMEN DATA (BERDASARKAN KONDISI):" << endl;
@@ -59,6 +59,7 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
                 }
                 cekP = cekP->next;
             }
+
             if (ada) {
                 cout << ">> Gagal: ID Paper sudah ada." << endl;
                 break;
@@ -74,34 +75,37 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
             break;
         }
 
-        // 2. TAMBAH KEYWORD
+        // 2. TAMBAH KEYWORD (NAMA SAJA)
         case 2: {
-            cout << "ID Keyword : ";
-            cin >> idKeyword;
-            cout << "Keyword    : ";
+            cout << "Keyword : ";
             cin >> namaKeyword;
 
-            bool idAda = false, namaAda = false;
+            bool ada = false;
             addressKeyword cekK = LK.first;
             while (cekK != nullptr) {
-                if (cekK->info.idKeyword == idKeyword) idAda = true;
-                if (cekK->info.namaKeyword == namaKeyword) namaAda = true;
+                if (cekK->info.namaKeyword == namaKeyword) {
+                    ada = true;
+                    break;
+                }
                 cekK = cekK->next;
             }
 
-            if (idAda || namaAda) {
-                cout << ">> Gagal: ID atau nama keyword sudah ada." << endl;
+            if (ada) {
+                cout << ">> Gagal: Keyword sudah ada." << endl;
                 break;
             }
 
-            insertLastKeyword(LK, alokasiKeyword({namaKeyword, idKeyword}));
+            infotypeKeyword dataK;
+            dataK.namaKeyword = namaKeyword;
+
+            insertLastKeyword(LK, alokasiKeyword(dataK));
             cout << ">> Keyword berhasil ditambahkan." << endl;
             break;
         }
 
         // 3. HAPUS PAPER (ID)
         case 3: {
-            cout << "Masukkan ID Paper: ";
+            cout << "ID Paper: ";
             cin >> idPaper;
 
             addressPaper cur = LP.first;
@@ -130,7 +134,7 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
             break;
         }
 
-        // 4. HAPUS KEYWORD (NAMA)
+                // 4. HAPUS KEYWORD (NAMA)
         case 4: {
             cout << "Masukkan Nama Keyword: ";
             cin >> namaKeyword;
@@ -148,17 +152,20 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
                 break;
             }
 
+            // putus semua relasi dulu
             removeRelasiByKeyword(LR, namaKeyword);
 
-            if (prec == nullptr)
+            if (prec == nullptr) {
                 deleteFirstKeyword(LK, K);
-            else
+            } else {
                 deleteAfterKeyword(LK, prec, K);
+            }
 
-            delete K;
+            // ❌ TIDAK ADA delete K
             cout << ">> Keyword berhasil dihapus." << endl;
             break;
         }
+
 
         // 5. DISCONNECT
         case 5:
@@ -180,13 +187,13 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
             editRelasi(LR, LP, LK, idPaper, namaKeyword, newKw);
             break;
 
-        // === PERUBAHAN UTAMA ADA DI SINI ===
+        // VIEW TERURUT
         case 7:
-            printPaperSortedByID(LP);          // TERURUT ID
+            printPaperSortedByID(LP);
             break;
 
         case 8:
-            printKeywordSortedAlphabet(LK);    // TERURUT A-Z
+            printKeywordSortedAlphabet(LK);
             break;
 
         case 9:
@@ -240,6 +247,5 @@ void userMenu(ListPaper &LP, ListKeyword &LK, ListRelasi &LR) {
         default:
             cout << "Pilihan tidak valid." << endl;
         }
-
-    } while (pilihan != 0);
+    }
 }

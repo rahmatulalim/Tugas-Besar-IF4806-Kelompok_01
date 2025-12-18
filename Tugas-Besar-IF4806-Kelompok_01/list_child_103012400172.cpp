@@ -80,7 +80,6 @@ void printKeywordSortedAlphabet(ListKeyword L) {
         }
 
         if (minK != nullptr) {
-            cout << "ID      : " << minK->info.idKeyword << endl;
             cout << "Keyword : " << minK->info.namaKeyword << endl;
             cout << "---------------------------" << endl;
             printed[idx] = true;

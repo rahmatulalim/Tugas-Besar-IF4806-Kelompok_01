@@ -7,7 +7,6 @@ using namespace std;
 
 struct infotypeKeyword {
     string namaKeyword;
-    string idKeyword;
 };
 
 typedef struct elmenKeyword *addressKeyword;
