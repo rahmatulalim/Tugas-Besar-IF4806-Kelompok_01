@@ -63,3 +63,47 @@ addressPaper findPaper(ListPaper L, string idPaper) {
     }
     return nullptr;
 }
+
+void printPaperSortedByID(ListPaper L) {
+    cout << "\n=== LIST PAPER (URUT BERDASARKAN ID) ===" << endl;
+
+    // Hitung jumlah paper
+    int total = 0;
+    addressPaper p = L.first;
+    while (p != nullptr) {
+        total++;
+        p = p->next;
+    }
+
+    bool printed[100];
+    for (int i = 0; i < total; i++) printed[i] = false;
+
+    // Selection sort versi display
+    for (int i = 0; i < total; i++) {
+        addressPaper minP = nullptr;
+        int idx = -1;
+
+        p = L.first;
+        int j = 0;
+        while (p != nullptr) {
+            if (!printed[j]) {
+                if (minP == nullptr ||
+                    p->info.idPaper < minP->info.idPaper) {
+                    minP = p;
+                    idx = j;
+                }
+            }
+            p = p->next;
+            j++;
+        }
+
+        if (minP != nullptr) {
+            cout << "ID    : " << minP->info.idPaper << endl;
+            cout << "Judul : " << minP->info.judul << endl;
+            cout << "Tahun : " << minP->info.tahun << endl;
+            cout << "---------------------------" << endl;
+            printed[idx] = true;
+        }
+    }
+}
+

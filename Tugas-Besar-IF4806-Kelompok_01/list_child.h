@@ -35,5 +35,6 @@ void deleteAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword &P);
 
 void printKeyword(ListKeyword L);
 addressKeyword findKeyword(ListKeyword L, string namaKeyword);
+void printKeywordSortedAlphabet(ListKeyword L);
 
 #endif

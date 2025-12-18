@@ -81,11 +81,11 @@
 	"list_child.h"
 	"list_relasi.h"
 
-1765597533 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+1766045385 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
 	<iostream>
 	<string>
 
-1765597533 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
+1766045385 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
 	<iostream>
 	<string>
 
@@ -127,4 +127,7 @@
 
 1765597819 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
 	"list_parent.h"
+
+1765597885 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
+	"list_child.h"
 

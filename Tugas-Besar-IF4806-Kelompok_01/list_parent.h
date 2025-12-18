@@ -34,5 +34,6 @@ void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P);
 
 void printPaper(ListPaper L);
 addressPaper findPaper(ListPaper L, string idPaper);
+void printPaperSortedByID(ListPaper L);
 
 #endif

@@ -48,3 +48,43 @@ void insertAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword P) {
     }
 }
 
+void printKeywordSortedAlphabet(ListKeyword L) {
+    cout << "\n=== LIST KEYWORD (URUT A - Z) ===" << endl;
+
+    int total = 0;
+    addressKeyword k = L.first;
+    while (k != nullptr) {
+        total++;
+        k = k->next;
+    }
+
+    bool printed[100];
+    for (int i = 0; i < total; i++) printed[i] = false;
+
+    for (int i = 0; i < total; i++) {
+        addressKeyword minK = nullptr;
+        int idx = -1;
+
+        k = L.first;
+        int j = 0;
+        while (k != nullptr) {
+            if (!printed[j]) {
+                if (minK == nullptr ||
+                    k->info.namaKeyword < minK->info.namaKeyword) {
+                    minK = k;
+                    idx = j;
+                }
+            }
+            k = k->next;
+            j++;
+        }
+
+        if (minK != nullptr) {
+            cout << "ID      : " << minK->info.idKeyword << endl;
+            cout << "Keyword : " << minK->info.namaKeyword << endl;
+            cout << "---------------------------" << endl;
+            printed[idx] = true;
+        }
+    }
+}
+
