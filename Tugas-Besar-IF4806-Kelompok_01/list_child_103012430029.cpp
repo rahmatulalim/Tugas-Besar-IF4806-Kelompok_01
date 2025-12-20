@@ -1,34 +1,5 @@
 #include "list_child.h"
 
-void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
-    P = L.first;
-    if (P != nullptr) {
-        if (L.first == L.last) {
-            L.first = nullptr;
-            L.last = nullptr;
-        } else {
-            L.first = P->next;
-            L.first->prev = nullptr;
-            P->next = nullptr;
-            P->prev = nullptr;
-        }
-    }
-}
-
-void deleteLastKeyword(ListKeyword &L, addressKeyword &P) {
-    P = L.last;
-    if (P != nullptr) {
-        if (L.first == L.last) {
-            deleteFirstKeyword(L, P);
-        } else {
-            L.last = P->prev;
-            L.last->next = nullptr;
-            P->prev = nullptr;
-            P->next = nullptr;
-        }
-    }
-}
-
 void deleteAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword &P) {
     P = nullptr;
     if (L.first == nullptr) return;
@@ -62,7 +33,6 @@ void printKeyword(ListKeyword L) {
     cout << endl;
 }
 
-
 addressKeyword findKeyword(ListKeyword L, string namaKeyword) {
     addressKeyword P = L.first;
     while (P != nullptr) {
@@ -73,3 +43,43 @@ addressKeyword findKeyword(ListKeyword L, string namaKeyword) {
     }
     return nullptr;
 }
+
+void printKeywordSortedAlphabet(ListKeyword L) {
+    cout << "\n=== LIST KEYWORD (URUT A - Z) ===" << endl;
+
+    int total = 0;
+    addressKeyword k = L.first;
+    while (k != nullptr) {
+        total++;
+        k = k->next;
+    }
+
+    bool printed[100];
+    for (int i = 0; i < total; i++) printed[i] = false;
+
+    for (int i = 0; i < total; i++) {
+        addressKeyword minK = nullptr;
+        int idx = -1;
+
+        k = L.first;
+        int j = 0;
+        while (k != nullptr) {
+            if (!printed[j]) {
+                if (minK == nullptr ||
+                    k->info.namaKeyword < minK->info.namaKeyword) {
+                    minK = k;
+                    idx = j;
+                }
+            }
+            k = k->next;
+            j++;
+        }
+
+        if (minK != nullptr) {
+            cout << "Keyword : " << minK->info.namaKeyword << endl;
+            cout << "---------------------------" << endl;
+            printed[idx] = true;
+        }
+    }
+}
+
