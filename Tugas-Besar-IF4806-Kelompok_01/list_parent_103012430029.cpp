@@ -1,4 +1,26 @@
 #include "list_parent.h"
+void printPaper(ListPaper L) {
+    addressPaper P = L.first;
+    cout << "\n=== LIST PAPER ===" << endl;
+    while (P != nullptr) {
+        cout << "ID: " << P->info.idPaper
+             << " | Judul: " << P->info.judul
+             << " | Tahun: " << P->info.tahun << endl;
+        P = P->next;
+    }
+    cout << endl;
+}
+
+addressPaper findPaper(ListPaper L, string idPaper) {
+    addressPaper P = L.first;
+    while (P != nullptr) {
+        if (P->info.idPaper == idPaper) {
+            return P;
+        }
+        P = P->next;
+    }
+    return nullptr;
+}
 
 void disconnectKeywordFromPaper(addressPaper P, string namaKeyword) {
     if (P == nullptr) {
