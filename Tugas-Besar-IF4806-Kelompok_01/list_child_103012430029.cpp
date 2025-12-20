@@ -1,4 +1,33 @@
 #include "list_child.h"
+void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
+    P = L.first;
+    if (P != nullptr) {
+        if (L.first == L.last) {
+            L.first = nullptr;
+            L.last = nullptr;
+        } else {
+            L.first = P->next;
+            L.first->prev = nullptr;
+            P->next = nullptr;
+            P->prev = nullptr;
+        }
+    }
+}
+
+void deleteLastKeyword(ListKeyword &L, addressKeyword &P) {
+    P = L.last;
+    if (P != nullptr) {
+        if (L.first == L.last) {
+            deleteFirstKeyword(L, P);
+        } else {
+            L.last = P->prev;
+            L.last->next = nullptr;
+            P->prev = nullptr;
+            P->next = nullptr;
+        }
+    }
+}
+
 
 void deleteAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword &P) {
     addressKeyword target;
@@ -31,17 +60,6 @@ void printKeyword(ListKeyword L) {
         P = P->next;
     }
     cout << endl;
-}
-
-addressKeyword findKeyword(ListKeyword L, string namaKeyword) {
-    addressKeyword P = L.first;
-    while (P != nullptr) {
-        if (P->info.namaKeyword == namaKeyword) {
-            return P;
-        }
-        P = P->next;
-    }
-    return nullptr;
 }
 
 void printKeywordSortedAlphabet(ListKeyword L) {
