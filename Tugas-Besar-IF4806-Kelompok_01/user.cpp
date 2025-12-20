@@ -89,7 +89,6 @@ void userMenu(ListPaper &LP, ListKeyword &LK) {
                 curK = curK->next;
             }
             if (curK != nullptr) {
-                // Menghapus relasi di semua paper terlebih dahulu
                 addressPaper p = LP.first;
                 while (p != nullptr) {
                     disconnectKeywordFromPaper(p, namaKeyword);

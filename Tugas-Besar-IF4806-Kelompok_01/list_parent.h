@@ -38,7 +38,6 @@ void printPaper(ListPaper L);
 addressPaper findPaper(ListPaper L, string idPaper);
 void printPaperSortedByID(ListPaper L);
 
-// Relasi
 void connectKeywordToPaper(addressPaper P, addressKeyword K);
 void disconnectKeywordFromPaper(addressPaper P, string namaKeyword);
 addressKeyword findChildInPaper(addressPaper P, string namaKeyword);
