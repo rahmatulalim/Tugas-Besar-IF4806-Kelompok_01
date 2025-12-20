@@ -30,14 +30,16 @@ void insertLastPaper(ListPaper &L, addressPaper P) {
 }
 
 void insertAfterPaper(ListPaper &L, addressPaper Prec, addressPaper P) {
-    if (P == nullptr) return;
-    if (Prec == nullptr) {
-        insertFirstPaper(L, P);
-    } else {
-        P->next = Prec->next;
-        Prec->next = P;
+    if (P != nullptr) {
+        if (Prec == nullptr) {
+            insertFirstPaper(L, P);
+        } else {
+            P->next = Prec->next;
+            Prec->next = P;
+        }
     }
 }
+
 
 void deleteFirstPaper(ListPaper &L, addressPaper &P) {
     if (L.first != nullptr) {
@@ -66,19 +68,20 @@ void deleteLastPaper(ListPaper &L, addressPaper &P) {
 
 void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P) {
     P = nullptr;
-    if (L.first == nullptr) return;
-    if (Prec == nullptr) {
-        deleteFirstPaper(L, P);
-    } else {
-        if (Prec->next == nullptr) {
-            P = nullptr;
-            return;
+
+    if (L.first != nullptr) {
+        if (Prec == nullptr) {
+            deleteFirstPaper(L, P);
+        } else {
+            if (Prec->next != nullptr) {
+                P = Prec->next;
+                Prec->next = P->next;
+                P->next = nullptr;
+            }
         }
-        P = Prec->next;
-        Prec->next = P->next;
-        P->next = nullptr;
     }
 }
+
 
 void printPaperSortedByID(ListPaper L) {
     cout << "\n=== LIST PAPER (URUT BERDASARKAN ID) ===" << endl;
@@ -117,25 +120,37 @@ void printPaperSortedByID(ListPaper L) {
 }
 
 void connectKeywordToPaper(addressPaper P, addressKeyword K) {
-    if (P == nullptr || K == nullptr) {
-        cout << ">> Gagal: Paper atau Keyword tidak valid." << endl;
-        return;
-    }
-    addressKeyword cek = P->firstChild;
-    while (cek != nullptr) {
-        if (cek->info.namaKeyword == K->info.namaKeyword) {
-            cout << ">> Relasi sudah ada!" << endl;
-            return;
+    if (P != nullptr && K != nullptr) {
+
+        bool sudahAda = false;
+        addressKeyword cek = P->firstChild;
+
+        while (cek != nullptr && !sudahAda) {
+            if (cek->info.namaKeyword == K->info.namaKeyword) {
+                sudahAda = true;
+            } else {
+                cek = cek->next;
+            }
         }
-        cek = cek->next;
+
+        if (sudahAda) {
+            cout << ">> Relasi sudah ada!" << endl;
+        } else {
+            K->next = P->firstChild;
+            if (P->firstChild != nullptr) {
+                P->firstChild->prev = K;
+            }
+            P->firstChild = K;
+            K->prev = nullptr;
+
+            cout << ">> Berhasil menghubungkan: "
+                 << P->info.judul << " <--> "
+                 << K->info.namaKeyword << endl;
+        }
+
+    } else {
+        cout << ">> Gagal: Paper atau Keyword tidak valid." << endl;
     }
-    K->next = P->firstChild;
-    if (P->firstChild != nullptr) {
-        P->firstChild->prev = K;
-    }
-    P->firstChild = K;
-    K->prev = nullptr;
-    cout << ">> Berhasil menghubungkan: " << P->info.judul << " <--> " << K->info.namaKeyword << endl;
 }
 
 

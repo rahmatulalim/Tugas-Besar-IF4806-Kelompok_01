@@ -15,7 +15,8 @@ int main() {
     createListKeyword(LK);
 
     int pilihan = -1;
-    do {
+
+    while (pilihan != 0) {
         system("cls");
         cout << "========================================" << endl;
         cout << "   APLIKASI PENGELOLA PAPER & KEYWORD   " << endl;
@@ -27,9 +28,12 @@ int main() {
         cout << "Pilihan: ";
         cin >> pilihan;
 
-        if (pilihan == 1) userMenu(LP, LK);
-        else if (pilihan == 2) adminMenu(LP, LK);
-    } while (pilihan != 0);
+        if (pilihan == 1) {
+            userMenu(LP, LK);
+        } else if (pilihan == 2) {
+            adminMenu(LP, LK);
+        }
+    }
 
     return 0;
 }

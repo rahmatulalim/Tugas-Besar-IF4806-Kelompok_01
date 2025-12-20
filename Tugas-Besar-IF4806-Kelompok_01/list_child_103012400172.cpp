@@ -35,18 +35,20 @@ void insertLastKeyword(ListKeyword &L, addressKeyword P) {
 }
 
 void insertAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword P) {
-    if (P == nullptr) return;
-    if (Prec == nullptr) {
-        insertFirstKeyword(L, P);
-    } else if (Prec == L.last) {
-        insertLastKeyword(L, P);
-    } else {
-        P->next = Prec->next;
-        P->prev = Prec;
-        Prec->next->prev = P;
-        Prec->next = P;
+    if (P != nullptr) {
+        if (Prec == nullptr) {
+            insertFirstKeyword(L, P);
+        } else if (Prec == L.last) {
+            insertLastKeyword(L, P);
+        } else {
+            P->next = Prec->next;
+            P->prev = Prec;
+            Prec->next->prev = P;
+            Prec->next = P;
+        }
     }
 }
+
 
 void deleteFirstKeyword(ListKeyword &L, addressKeyword &P) {
     P = L.first;

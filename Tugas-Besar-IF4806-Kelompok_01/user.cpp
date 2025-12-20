@@ -17,15 +17,15 @@ void userMenu(ListPaper &LP, ListKeyword &LK) {
         cout << "===========================================" << endl;
         cout << " [ DATA MANAJEMEN ]" << endl;
         cout << " 1. Tambah Paper Baru" << endl;
-        cout << " 2. Tambah Keyword ke Master" << endl;
+        cout << " 2. Tambah Keyword Baru" << endl;
         cout << " 3. Hapus Paper (ID)" << endl;
-        cout << " 4. Hapus Keyword (Master)" << endl;
+        cout << " 4. Hapus Keyword (Nama)" << endl;
         cout << "\n [ MANAJEMEN RELASI ]" << endl;
         cout << " 5. Hubungkan Paper ke Keyword" << endl;
         cout << " 6. Putus Hubungan Paper - Keyword" << endl;
         cout << "\n [ PENELUSURAN & VIEW ]" << endl;
         cout << " 7. Daftar Paper (Urut ID)" << endl;
-        cout << " 8. Daftar Keyword Master (Urut A-Z)" << endl;
+        cout << " 8. Daftar Keyword (Urut A-Z)" << endl;
         cout << " 9. Tampilkan Semua Paper & Keywordnya" << endl;
         cout << " 10. Cari Keyword dari Paper Tertentu" << endl;
         cout << " 11. Cari Paper dari Keyword Tertentu" << endl;
@@ -52,11 +52,11 @@ void userMenu(ListPaper &LP, ListKeyword &LK) {
             break;
         }
         case 2: {
-            cout << "\n[ Tambah Keyword Master ]" << endl;
+            cout << "\n[ Tambah Keyword ]" << endl;
             cout << "Nama Keyword: "; cin >> namaKeyword;
             if (findKeyword(LK, namaKeyword) == nullptr) {
                 insertLastKeyword(LK, alokasiKeyword({namaKeyword}));
-                cout << ">> Keyword ditambahkan ke master." << endl;
+                cout << ">> Keyword ditambahkan." << endl;
             } else {
                 cout << ">> Gagal: Keyword sudah ada." << endl;
             }
@@ -81,7 +81,7 @@ void userMenu(ListPaper &LP, ListKeyword &LK) {
             break;
         }
         case 4: {
-            cout << "\n[ Hapus Keyword Master ]" << endl;
+            cout << "\n[ Hapus Keyword ]" << endl;
             cout << "Nama Keyword: "; cin >> namaKeyword;
             addressKeyword curK = LK.first, precK = nullptr;
             while (curK != nullptr && curK->info.namaKeyword != namaKeyword) {
