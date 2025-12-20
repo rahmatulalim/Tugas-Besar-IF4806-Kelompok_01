@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "list_child.h"
 using namespace std;
 
 struct infotypePaper {
@@ -16,6 +17,7 @@ typedef struct elmenPaper *addressPaper;
 struct elmenPaper {
     infotypePaper info;
     addressPaper next;
+    addressKeyword firstChild;
 };
 
 struct ListPaper {
@@ -35,5 +37,16 @@ void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P);
 void printPaper(ListPaper L);
 addressPaper findPaper(ListPaper L, string idPaper);
 void printPaperSortedByID(ListPaper L);
+
+// Relasi
+void connectKeywordToPaper(addressPaper P, addressKeyword K);
+void disconnectKeywordFromPaper(addressPaper P, string namaKeyword);
+addressKeyword findChildInPaper(addressPaper P, string namaKeyword);
+void printChildOfParent(addressPaper P);
+void printParentFromChild(ListPaper LP, string namaKeyword);
+void printAllParentWithChild(ListPaper LP);
+void countRelationOfParent(ListPaper LP);
+void countNoRelationParent(ListPaper LP);
+int countChildOfPaper(addressPaper P);
 
 #endif
