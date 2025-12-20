@@ -1,24 +1,24 @@
 #include "list_child.h"
 
 void deleteAfterKeyword(ListKeyword &L, addressKeyword Prec, addressKeyword &P) {
+    addressKeyword target;
     P = nullptr;
-    if (L.first == nullptr) return;
-    if (Prec == nullptr) {
-        deleteFirstKeyword(L, P);
-    } else {
-        addressKeyword target = Prec->next;
-        if (target == nullptr) {
-            P = nullptr;
-            return;
-        }
-        if (target == L.last) {
-            deleteLastKeyword(L, P);
+    if (L.first != nullptr) {
+        if (Prec == nullptr) {
+            deleteFirstKeyword(L, P);
         } else {
-            P = target;
-            Prec->next = P->next;
-            P->next->prev = Prec;
-            P->next = nullptr;
-            P->prev = nullptr;
+            target = Prec->next;
+            if (target != nullptr) {
+                if (target == L.last) {
+                    deleteLastKeyword(L, P);
+                } else {
+                    P = target;
+                    Prec->next = P->next;
+                    P->next->prev = Prec;
+                    P->next = nullptr;
+                    P->prev = nullptr;
+                }
+            }
         }
     }
 }
