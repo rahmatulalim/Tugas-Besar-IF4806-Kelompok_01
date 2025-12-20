@@ -6,7 +6,7 @@
 	<iostream>
 	<string>
 
-1766197721 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+1766206957 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -32,7 +32,7 @@
 1764934873 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.cpp
 	"list_parent.h"
 
-1766197160 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+1766209671 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
 	<iostream>
 	<string>
 	"list_child.h"
@@ -52,24 +52,22 @@
 	"list_parent.h"
 	"list_child.h"
 
-1766197198 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
+1766207895 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
 	"list_parent.h"
 	"list_child.h"
 
-1766197213 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
+1766206957 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
 	"list_parent.h"
 	"list_child.h"
 
-1766197704 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
+1766209661 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
 	<iostream>
 	<string>
-	<cstdlib>
 	"user.h"
 
-1766197712 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
+1766208065 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
 	<iostream>
 	<string>
-	<cstdlib>
 	"admin.h"
 
 1766052439 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
@@ -135,16 +133,16 @@
 1766051749 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
 	"list_child.h"
 
-1766197179 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
+1766209519 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
 	"list_parent.h"
 
-1766197186 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
+1766209526 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
 	"list_parent.h"
 
-1766197139 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
+1766209221 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
 	"list_child.h"
 
-1766197146 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
+1766209217 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
 	"list_child.h"
 
 1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\admin.cpp

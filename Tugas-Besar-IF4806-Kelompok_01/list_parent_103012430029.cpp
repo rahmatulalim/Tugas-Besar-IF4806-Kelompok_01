@@ -1,29 +1,55 @@
 #include "list_parent.h"
+void printPaper(ListPaper L) {
+    addressPaper P = L.first;
+    cout << "\n=== LIST PAPER ===" << endl;
+    while (P != nullptr) {
+        cout << "ID: " << P->info.idPaper
+             << " | Judul: " << P->info.judul
+             << " | Tahun: " << P->info.tahun << endl;
+        P = P->next;
+    }
+    cout << endl;
+}
+
+addressPaper findPaper(ListPaper L, string idPaper) {
+    addressPaper P = L.first;
+    while (P != nullptr) {
+        if (P->info.idPaper == idPaper) {
+            return P;
+        }
+        P = P->next;
+    }
+    return nullptr;
+}
 
 void disconnectKeywordFromPaper(addressPaper P, string namaKeyword) {
-    if (P == nullptr) {
-        cout << ">> Paper tidak valid." << endl;
-        return;
-    }
-    addressKeyword curr = P->firstChild;
-    while (curr != nullptr) {
-        if (curr->info.namaKeyword == namaKeyword) {
-            if (curr->prev != nullptr) {
-                curr->prev->next = curr->next;
+    if (P != nullptr) {
+        addressKeyword curr = P->firstChild;
+        bool found = false;
+        while (curr != nullptr && !found) {
+            if (curr->info.namaKeyword == namaKeyword) {
+                if (curr->prev != nullptr) {
+                    curr->prev->next = curr->next;
+                } else {
+                    P->firstChild = curr->next;
+                }
+                if (curr->next != nullptr) {
+                    curr->next->prev = curr->prev;
+                }
+                curr->next = nullptr;
+                curr->prev = nullptr;
+                cout << ">> Putus Relasi Berhasil." << endl;
+                found = true;
             } else {
-                P->firstChild = curr->next;
+                curr = curr->next;
             }
-            if (curr->next != nullptr) {
-                curr->next->prev = curr->prev;
-            }
-            curr->next = nullptr;
-            curr->prev = nullptr;
-            cout << ">> Putus Relasi Berhasil." << endl;
-            return;
         }
-        curr = curr->next;
+        if (!found) {
+            cout << ">> Relasi tidak ditemukan." << endl;
+        }
+    } else {
+        cout << ">> Paper tidak valid." << endl;
     }
-    cout << ">> Relasi tidak ditemukan." << endl;
 }
 
 addressKeyword findChildInPaper(addressPaper P, string namaKeyword) {
@@ -55,25 +81,21 @@ void printChildOfParent(addressPaper P) {
 }
 
 void printParentFromChild(ListPaper LP, string namaKeyword) {
-    if (LP.first == nullptr) {
-        cout << "Tidak ada paper." << endl;
-        return;
-    }
-
-    cout << "Keyword: " << namaKeyword << " terdapat pada paper:" << endl;
-
-    addressPaper P = LP.first;
-    bool found = false;
-
-    while (P != nullptr) {
-        if (findChildInPaper(P, namaKeyword) != nullptr) {
-            cout << "- " << P->info.judul << endl;
-            found = true;
+    if (LP.first != nullptr) {
+        cout << "Keyword: " << namaKeyword << " terdapat pada paper:" << endl;
+        addressPaper P = LP.first;
+        bool found = false;
+        while (P != nullptr) {
+            if (findChildInPaper(P, namaKeyword) != nullptr) {
+                cout << "- " << P->info.judul << endl;
+                found = true;
+            }
+            P = P->next;
         }
-        P = P->next;
+        if (!found) cout << "(Tidak ada paper)" << endl;
+    } else {
+        cout << "Tidak ada paper." << endl;
     }
-
-    if (!found) cout << "(Tidak ada paper)" << endl;
 }
 
 

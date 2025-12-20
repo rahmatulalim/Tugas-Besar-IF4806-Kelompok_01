@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "admin.h"
 
 using namespace std;
@@ -13,7 +12,6 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
     addressKeyword K, PrecK;
 
     while (pilihan != 0) {
-        system("cls");
         cout << "===========================================" << endl;
         cout << "          ADMIN DASHBOARD (PRIMITIF)       " << endl;
         cout << "===========================================" << endl;
@@ -30,6 +28,11 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
         cout << "10. Hapus Keyword (First)" << endl;
         cout << "11. Hapus Keyword (Last)" << endl;
         cout << "12. Hapus Keyword (After)" << endl;
+        cout << "-------------------------------------------" << endl;
+        cout << "13. Tampilkan Semua Paper (ShowAllParent)" << endl;
+        cout << "14. Tampilkan Semua Keyword (ShowAllChild)" << endl;
+        cout << "15. Cari Paper (SearchParent)" << endl;
+        cout << "16. Cari Keyword (SearchChild)" << endl;
         cout << "0.  Kembali" << endl;
         cout << "===========================================" << endl;
         cout << "Pilih: ";
@@ -38,55 +41,46 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
         switch (pilihan) {
         case 1:
             cout << "ID    : "; cin >> idPaper;
-            cout << "Judul : "; cin >> judulPaper;
+            cout << "Judul : "; cin.ignore(); getline(cin, judulPaper);
             cout << "Tahun : "; cin >> tahunPaper;
             insertFirstPaper(LP, alokasiPaper({judulPaper, idPaper, tahunPaper}));
-            system("pause");
             break;
         case 2:
             cout << "ID    : "; cin >> idPaper;
-            cout << "Judul : "; cin >> judulPaper;
+            cout << "Judul : "; cin.ignore(); getline(cin, judulPaper);
             cout << "Tahun : "; cin >> tahunPaper;
             insertLastPaper(LP, alokasiPaper({judulPaper, idPaper, tahunPaper}));
-            system("pause");
             break;
         case 3:
             cout << "Cari ID Paper sebelumnya: "; cin >> targetID;
             PrecP = findPaper(LP, targetID);
             if (PrecP != nullptr) {
                 cout << "ID Baru    : "; cin >> idPaper;
-                cout << "Judul Baru : "; cin >> judulPaper;
+                cout << "Judul Baru : "; cin.ignore(); getline(cin, judulPaper);
                 cout << "Tahun      : "; cin >> tahunPaper;
                 insertAfterPaper(LP, PrecP, alokasiPaper({judulPaper, idPaper, tahunPaper}));
             } else cout << "ID tidak ditemukan!" << endl;
-            system("pause");
             break;
         case 4:
             deleteFirstPaper(LP, P);
-            cout << ">> Berhasil dihapus." << endl;
-            system("pause");
+            if (P != nullptr) cout << ">> Berhasil dihapus: " << P->info.judul << endl;
             break;
         case 5:
             deleteLastPaper(LP, P);
-            cout << ">> Berhasil dihapus." << endl;
-            system("pause");
+            if (P != nullptr) cout << ">> Berhasil dihapus: " << P->info.judul << endl;
             break;
         case 6:
-            cout << "Cari ID Paper sebelumnya: "; cin >> targetID;
+            cout << "Cari ID Paper sebelum target: "; cin >> targetID;
             PrecP = findPaper(LP, targetID);
             deleteAfterPaper(LP, PrecP, P);
-            cout << ">> Berhasil dihapus." << endl;
-            system("pause");
             break;
         case 7:
             cout << "Keyword: "; cin >> namaKeyword;
             insertFirstKeyword(LK, alokasiKeyword({namaKeyword}));
-            system("pause");
             break;
         case 8:
             cout << "Keyword: "; cin >> namaKeyword;
             insertLastKeyword(LK, alokasiKeyword({namaKeyword}));
-            system("pause");
             break;
         case 9:
             cout << "Cari Keyword sebelumnya: "; cin >> targetKW;
@@ -95,7 +89,6 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
                 cout << "Keyword Baru: "; cin >> namaKeyword;
                 insertAfterKeyword(LK, PrecK, alokasiKeyword({namaKeyword}));
             } else cout << "Keyword tidak ditemukan!" << endl;
-            system("pause");
             break;
         case 10:
             deleteFirstKeyword(LK, K);
@@ -103,7 +96,6 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
                 addressPaper p = LP.first;
                 while (p != nullptr) { disconnectKeywordFromPaper(p, K->info.namaKeyword); p = p->next; }
             }
-            system("pause");
             break;
         case 11:
             deleteLastKeyword(LK, K);
@@ -111,17 +103,35 @@ void adminMenu(ListPaper &LP, ListKeyword &LK) {
                 addressPaper p = LP.first;
                 while (p != nullptr) { disconnectKeywordFromPaper(p, K->info.namaKeyword); p = p->next; }
             }
-            system("pause");
             break;
         case 12:
-            cout << "Cari Keyword sebelumnya: "; cin >> targetKW;
+            cout << "Cari Keyword sebelum target: "; cin >> targetKW;
             PrecK = findKeyword(LK, targetKW);
             deleteAfterKeyword(LK, PrecK, K);
             if (K != nullptr) {
                 addressPaper p = LP.first;
                 while (p != nullptr) { disconnectKeywordFromPaper(p, K->info.namaKeyword); p = p->next; }
             }
-            system("pause");
+            break;
+        case 13:
+            printPaper(LP);
+            break;
+        case 14:
+            printKeyword(LK);
+            break;
+        case 15:
+            cout << "Masukkan ID Paper yang dicari: "; cin >> idPaper;
+            P = findPaper(LP, idPaper);
+            if (P != nullptr) {
+                cout << ">> Ditemukan: " << P->info.judul << " (" << P->info.tahun << ")" << endl;
+            } else cout << ">> Paper tidak ditemukan." << endl;
+            break;
+        case 16:
+            cout << "Masukkan Nama Keyword yang dicari: "; cin >> namaKeyword;
+            K = findKeyword(LK, namaKeyword);
+            if (K != nullptr) {
+                cout << ">> Ditemukan: " << K->info.namaKeyword << endl;
+            } else cout << ">> Keyword tidak ditemukan." << endl;
             break;
         case 0: break;
         }

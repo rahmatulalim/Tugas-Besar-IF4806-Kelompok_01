@@ -80,29 +80,6 @@ void deleteAfterPaper(ListPaper &L, addressPaper Prec, addressPaper &P) {
     }
 }
 
-void printPaper(ListPaper L) {
-    addressPaper P = L.first;
-    cout << "\n=== LIST PAPER ===" << endl;
-    while (P != nullptr) {
-        cout << "ID: " << P->info.idPaper
-             << " | Judul: " << P->info.judul
-             << " | Tahun: " << P->info.tahun << endl;
-        P = P->next;
-    }
-    cout << endl;
-}
-
-addressPaper findPaper(ListPaper L, string idPaper) {
-    addressPaper P = L.first;
-    while (P != nullptr) {
-        if (P->info.idPaper == idPaper) {
-            return P;
-        }
-        P = P->next;
-    }
-    return nullptr;
-}
-
 void printPaperSortedByID(ListPaper L) {
     cout << "\n=== LIST PAPER (URUT BERDASARKAN ID) ===" << endl;
     int total = 0;
