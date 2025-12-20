@@ -6,12 +6,12 @@
 	<iostream>
 	<string>
 
-1765538923 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+1766197721 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
 	<iostream>
 	<string>
+	<cstdlib>
 	"list_child.h"
 	"list_parent.h"
-	"list_relasi.h"
 	"user.h"
 	"admin.h"
 
@@ -32,14 +32,15 @@
 1764934873 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.cpp
 	"list_parent.h"
 
-1765279543 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+1766197160 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
 	<iostream>
 	<string>
+	"list_child.h"
 
 1764934862 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.cpp
 	"list_child.h"
 
-1765279654 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
+1766197117 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
 	<iostream>
 	<string>
 
@@ -51,42 +52,41 @@
 	"list_parent.h"
 	"list_child.h"
 
-1765279689 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
+1766197198 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
 	"list_parent.h"
 	"list_child.h"
-	"list_relasi.h"
 
-1765279698 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
+1766197213 d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
 	"list_parent.h"
 	"list_child.h"
-	"list_relasi.h"
 
-1764934751 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
+1766197704 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
 	<iostream>
 	<string>
+	<cstdlib>
 	"user.h"
 
-1764934610 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
-	<iostream>
-	<string>
-	"admin.h"
-
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
+1766197712 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
 	<iostream>
 	<string>
 	<cstdlib>
 	"admin.h"
 
-1766201422 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
-	"list_parent.h"
-	"list_child.h"
-
-1766201422 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+1766052439 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.cpp
 	<iostream>
 	<string>
-	"list_child.h"
+	"admin.h"
 
-1766201422 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
+1765597533 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\admin.h
+	"list_parent.h"
+	"list_child.h"
+	"list_relasi.h"
+
+1766045385 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent.h
+	<iostream>
+	<string>
+
+1766051208 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child.h
 	<iostream>
 	<string>
 
@@ -104,7 +104,81 @@
 	"list_relasi.h"
 	<iostream>
 
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+1765597533 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\main.cpp
+	<iostream>
+	<string>
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
+	"user.h"
+	"admin.h"
+
+1765597533 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
+	"list_parent.h"
+	"list_child.h"
+	"list_relasi.h"
+
+1766052968 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
+	<iostream>
+	<string>
+	"user.h"
+
+1765597816 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
+	"list_parent.h"
+
+1766045385 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
+	"list_parent.h"
+
+1766051739 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
+	"list_child.h"
+
+1766051749 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
+	"list_child.h"
+
+1766197179 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
+	"list_parent.h"
+
+1766197186 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
+	"list_parent.h"
+
+1766197139 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
+	"list_child.h"
+
+1766197146 source:d:\tp\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
+	"list_child.h"
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\admin.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	"admin.h"
+
+1766198043 c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\admin.h
+	"list_parent.h"
+	"list_child.h"
+
+1766200037 c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_parent.h
+	<iostream>
+	<string>
+	"list_child.h"
+
+1766198043 c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_child.h
+	<iostream>
+	<string>
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
+	"list_child.h"
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
+	"list_child.h"
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
+	"list_parent.h"
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
+	"list_parent.h"
+
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\main.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -113,25 +187,13 @@
 	"user.h"
 	"admin.h"
 
-1766201422 d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.h
+1766198043 c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\user.h
 	"list_parent.h"
 	"list_child.h"
 
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\user.cpp
+1766198043 source:c:\users\alim\downloads\tugas-besar-if4806-kelompok_01\user.cpp
 	<iostream>
 	<string>
 	<cstdlib>
 	"user.h"
-
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012400172.cpp
-	"list_parent.h"
-
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_parent_103012430029.cpp
-	"list_parent.h"
-
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012430029.cpp
-	"list_child.h"
-
-1766201422 source:d:\anomali\s3 struktur data\tugas-besar-if4806-kelompok_01\tugas-besar-if4806-kelompok_01\list_child_103012400172.cpp
-	"list_child.h"
 
