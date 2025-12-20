@@ -39,7 +39,7 @@
 
 # debug information files
 *.dwo
-/tubes/obj/
 *.exe
 *.o
-/tubes/bin/
+/Tugas-Besar-IF4806-Kelompok_01/obj/
+/Tugas-Besar-IF4806-Kelompok_01/bin/
